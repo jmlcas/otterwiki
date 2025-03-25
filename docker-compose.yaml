@@ -1,0 +1,17 @@
+services:
+
+  otterwiki:
+    image: redimp/otterwiki:latest
+    container_name: otterwiki
+    restart: unless-stopped
+    init: true
+    ports:
+      - "8200:80"
+    volumes:
+    - ./app-data:/app-data
+    environment:
+      - SITE_NAME=Mi Wiki
+      - READ_ACCESS=ANONYMOUS
+      - WRITE_ACCESS=REGISTERED
+      - ATTACHMENT_ACCESS=APPROVED
+
